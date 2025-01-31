@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-ui-deployment
+  labels:
+    app: ingress-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ingress-ui
+  template:
+    metadata:
+      labels:
+        app: ingress-ui
+    spec:
+      containers:
+      - name: ingress-ui
+        image: ingress-ui:latest  # Replace with your container registry image if needed
+        ports:
+        - containerPort: 80
